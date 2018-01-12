@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Página princpial</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="red darken-4 lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Administracion y Diseño de Base de Datos</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="section">
+      <div class="row ">
+
+        <div class="col s3">
+          <a value="Listar Tabla" id="listar" class="btn-large waves-effect waves-light orange darken-4">Listar Tabla</a><br></br>
+          <a value="Crear Campo" id="crear" class="btn-large waves-effect waves-light orange darken-4">Crear Campo</a><br></br>
+                    <div id="cuadro_anadir" >
+                    <label >Nombre Articulo:</label>
+                    <input type="text" name="nombre_art" id="nombre_art"><br>
+                    <label >URL:</label>
+                    <input type="text" name="url_art" id="url_art"><br>
+                    <label >Precio:</label>
+                    <input type="number" name="precio_art" id="precio_art"><br>
+                    <input type="button" id="enviar1" class="boton" value="Insertar" class="btn-large waves-effect waves-light blue darken-4" />
+                    <input type="button" id="quitar" class="boton" value="Cerrar" class="btn-large waves-effect waves-light blue darken-4"/>
+                  </div>
+          <a value="Editar Campo" id="editar" class="btn-large waves-effect waves-light orange darken-4">Editar Campo</a><br></br>
+                  <div id="cuadro_editar"class="row">
+                  <label >Nombre Articulo Viejo:</label>
+                  <input type="text" name="nombre_art_viejo" id="nombre_art_viejo"><br>
+                  <label > Vieja URL:</label>
+                  <input type="text" name="url_art_viejo" id="url_art_viejo"><br>
+                  <label > Viejo Precio:</label>
+                  <input type="number" name="precio_art_viejo" id="precio_art_viejo"><br>
+                  <label >Nombre Articulo Nuevo:</label>
+                  <input type="text" name="nombre_art_nuevo" id="nombre_art_nuevo"><br>
+                  <label > Nueva URL:</label>
+                  <input type="text" name="url_art_nuevo" id="url_art_nuevo"><br>
+                  <label >Nuevo Precio :</label>
+                  <input type="number" name="precio_art_nuevo" id="precio_art_nuevo"><br>
+                  <input type="button" id="enviar_editar" class="boton" value="Editar"/>
+                  <input type="button" id="quitar3" class="boton" value="Cerrar"/>
+                </div>
+          <a value="Eliminar Campo" id="eliminar" class="btn-large waves-effect waves-light orange darken-4">Eliminar Campo</a><br></br>
+                <div id="cuadro_borrar" class="row">
+                  <label >Eliminar Articulo:</label>
+                  <input type="text" name="art_eliminar" id="art_eliminar"><br>
+                  <input type="button" id="eliminar1" class="boton" value="Eliminar"/>
+                  <input type="button" id="quitar1" class="boton" value="Cerrar"/>
+                </div>
+
+          <a value="Ordenar Ascendente por precio" id="ordasc" class="btn-large waves-effect waves-light orange darken-4">OrdenarAsc  </a><br></br>
+          <a value="Ordenar Descendete por precio" id="ordesc" class="btn-large waves-effect waves-light orange darken-4">OrdenarDes</a><br></br>
+          <a value="Buscar por campo" id="buscar" class="btn-large waves-effect waves-light orange darken-4">Buscar</a><br></br>
+                  <div id="cuadro_buscar" class="row">
+                      <label >Buscar Articulo:</label>
+                      <input type="text" name="art_buscar" id="art_buscar"><br>
+                      <input type="button" id="enviar_buscar" class="boton" value="Buscar"/>
+                      <input type="button" id="quitar2" class="boton" value="Cerrar"/>
+                    </div>
+          <a value="Salir" id="salir" class="btn-large waves-effect waves-light red darken-4">Salir</a><br></br>
+        </div>
+
+        <div  id="tabla" class="col s9">
+        <!-- Aquí la div que quieras mostar -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer red darken-4 lighten-1">
+    <div class="container">
+      <div class="row center">
+        <h5 class="white-text">Componentes del Grupo</h5>
+        <div class="col s3"><p class="orange-text text-lighten-12">Elliott Dorta Ramos</p></div>
+          <div class="col s3"><p class="orange-text text-lighten-12">Noé  Campos Delgado </p></div>
+            <div class="col s3"><p class="orange-text text-lighten-12">Carlos Andrés Castro Garcia </p></div>
+              <div class="col s3"><p class="orange-text text-lighten-12">Alberto Sarabia Suarez </p></div>
+      </div>
+
+
+    <div class="footer-copyright">
+
+      <div class="container">
+        <div class="row center">
+          Diseñado <a class="white-text text-lighten-3" > Grupo Numero 05</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript" src="./js/motor.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+  </body>
+</html>
