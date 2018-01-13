@@ -1,10 +1,7 @@
 <?php
-
-echo "editar";
 session_start();
-echo $_SESSION['usuario'];
-
-
+$suser = $_SESSION['usuario'];
+echo $suser;
 
 $nombre_viejo = antiSqlinjection($_POST['nombre_viejo']);
 $url_viejo = antiSqlinjection($_POST['url_viejo']);
@@ -31,8 +28,8 @@ function antiSqlinjection($data) {
 // $url_nuevo = "";
 // $precio_nuevo = "66";
 
-echo "VIEJO NOMBRE: " . $nombre_viejo . "URL: " . $url_viejo . "PRECIO: " .  $precio_viejo;
-echo "NUEVO NOMBRE: " . $nombre_nuevo . "URL: " . $url_nuevo . "PRECIO: " .  $precio_nuevo;
+//echo "VIEJO NOMBRE: " . $nombre_viejo . "URL: " . $url_viejo . "PRECIO: " .  $precio_viejo;
+//echo "NUEVO NOMBRE: " . $nombre_nuevo . "URL: " . $url_nuevo . "PRECIO: " .  $precio_nuevo;
 
 
 
@@ -51,7 +48,7 @@ $conexion = mysqli_connect($db_server, $db_user, $db_pass, $db_name) or die("Err
                                  precio = '$precio_nuevo'
                           WHERE nombre ='$nombre_viejo' AND
                                  url = '$url_viejo' AND
-                                precio = '$precio_viejo' ";
+                                precio = '$precio_viejo' AND usuario = '$suser'";
 
  if (!$resultado = $conexion->query($query)){
    echo "Lo sentimos, este sitio web está experimentando problemas.";
@@ -65,6 +62,19 @@ $conexion = mysqli_connect($db_server, $db_user, $db_pass, $db_name) or die("Err
     exit;
  }
 
+$todo ="SELECT * FROM objetos WHERE usuario = '$suser'";
+$resultado =  $conexion->query($todo);
+//listamos
+if ($row = $resultado-> fetch_array()){//mysql_fetch_array($resultado)
+   echo "<table border = '1'> \n";
+   echo "<tr><td>Nombre</td><td>URL</td><td>Precio</td></tr> \n";
+   do {
+      echo "<tr><td>".$row["nombre"]."</td><td>".$row["url"]."</td><td>".$row["precio"]."€</td></tr> \n";
+   } while ($row = $resultado-> fetch_array());
+   echo "</table> \n";
+} else {
+echo "¡No se ha encontrado ningun registro!";
+}
  //listamos
  // if ($row = $resultado-> fetch_array()){//mysql_fetch_array($resultado)
  //    echo "<table border = '1'> \n";
@@ -79,7 +89,6 @@ $conexion = mysqli_connect($db_server, $db_user, $db_pass, $db_name) or die("Err
 
  //liberamos el RESULTADO
  //$resultado->free();
-
  // update alumnos set mail='$_REQUEST[mailnuevo]' where mail='$_REQUEST[mailviejo]
  //"INSERT INTO objetos (id,nombre,url,precio) VALUES (NULL,'$nombre','$url','$precio')";
 // //$query ="SELECT * FROM objetos";

@@ -1,5 +1,4 @@
 <?php
-echo "ordenar ascendente";
 session_start();
 $suser = $_SESSION['usuario'];
 echo $suser;

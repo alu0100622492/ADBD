@@ -1,10 +1,7 @@
 <?php
-
-echo "buscar";
 session_start();
-echo $_SESSION['usuario'];
-
-
+$suser = $_SESSION['usuario'];
+echo $suser;
 
  $nombre = antiSqlinjection($_POST['nombre']);
 // $nombre= "silla";

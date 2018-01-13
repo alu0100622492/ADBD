@@ -1,6 +1,6 @@
 <?php
-echo "insertar";
 session_start();
+
 $suser = $_SESSION['usuario'];
 echo $suser;
 
@@ -38,7 +38,7 @@ $query = "INSERT INTO objetos (id,nombre,url,precio,usuario) VALUES (NULL,'$nomb
 
 //lanzamos la Consulta
  $conexion->query($query);
- $todo ="SELECT * FROM objetos";
+ $todo ="SELECT * FROM objetos WHERE usuario = '$suser'";
 $resultado =  $conexion->query($todo);
 //listamos
 if ($row = $resultado-> fetch_array()){//mysql_fetch_array($resultado)

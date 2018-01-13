@@ -1,10 +1,9 @@
 <?php
-
-// DELETE FROM `objetos` WHERE `objetos`.`id` = 9
-echo "eliminar";
 session_start();
-echo $_SESSION['usuario'];
+// DELETE FROM `objetos` WHERE `objetos`.`id` = 9
 
+$suser = $_SESSION['usuario'];
+echo $suser;
 
 
 $nombre = antiSqlinjection($_POST['nombre']);
@@ -31,7 +30,7 @@ $conexion = mysqli_connect($db_server, $db_user, $db_pass, $db_name) or die("Err
 
 //Consulta a realizar
 //INSERT INTO `objetos` (`id`, `nombre`, `url`, `precio`) VALUES (NULL, 'prueba', 'pruebita.com', '1');
-$query = "DELETE FROM objetos WHERE nombre = '$nombre'";
+$query = "DELETE FROM objetos WHERE nombre = '$nombre' AND usuario= '$suser'";
 //"INSERT INTO objetos (id,nombre,url,precio) VALUES (NULL,'$nombre','$url','$precio')";
 //$query ="SELECT * FROM objetos";
 
