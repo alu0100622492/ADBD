@@ -1,7 +1,9 @@
 <?php
 echo "insertar";
 session_start();
-echo $_SESSION['usuario'];
+$suser = $_SESSION['usuario'];
+echo $suser;
+
 
 
 
@@ -28,7 +30,7 @@ $conexion = mysqli_connect($db_server, $db_user, $db_pass, $db_name) or die("Err
 
 //Consulta a realizar
 //INSERT INTO `objetos` (`id`, `nombre`, `url`, `precio`) VALUES (NULL, 'prueba', 'pruebita.com', '1');
-$query = "INSERT INTO objetos (id,nombre,url,precio) VALUES (NULL,'$nombre','$url','$precio')";
+$query = "INSERT INTO objetos (id,nombre,url,precio,usuario) VALUES (NULL,'$nombre','$url','$precio','$suser')";
 //$query ="SELECT * FROM objetos";
 
 

@@ -1,7 +1,8 @@
 <?php
 
 session_start();
-echo $_SESSION['usuario'];
+$suser = $_SESSION['usuario'];
+echo $suser;
 
 //fich configuracion de acceso al servidor
 include "config.php";
@@ -12,7 +13,7 @@ include "config.php";
 $conexion = mysqli_connect($db_server, $db_user, $db_pass, $db_name) or die("Error: " . mysqli_error($conexion));;
 
 //Consulta a realizar
-$query ="SELECT * FROM objetos";
+$query ="SELECT * FROM objetos WHERE usuario= '$suser'";
 // $query = "SELECT nombre FROM alumnos WHERE id=1";
 // "SELECT * FROM alumnos WHERE usuario = '$usuario' AND contrasena = '$contrasena'";
 
